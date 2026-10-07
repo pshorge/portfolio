@@ -3,396 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta
     name="description"
-    content="Paweł Hanejko — Software Developer. Wybrane realizacje mobile, web i systemy interaktywne."
+    content="Paweł Hanejko — Software Developer. Mobile, web, Rust, Tauri, Unity oraz rozwiązania interaktywne."
   >
+
   <title>Paweł Hanejko — Software Developer</title>
 
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --surface: #13161b;
-      --surface-2: #191d23;
-      --text: #f5f7fa;
-      --muted: #9ca6b3;
-      --line: rgba(255, 255, 255, 0.09);
-      --accent: #ffffff;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at top left, #202630 0, transparent 35rem),
-        var(--bg);
-      color: var(--text);
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    .container {
-      width: min(calc(100% - 40px), var(--max));
-      margin-inline: auto;
-    }
-
-    header {
-      padding: 28px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .hero {
-      padding: 110px 0 90px;
-    }
-
-    .eyebrow {
-      margin-bottom: 20px;
-      color: var(--muted);
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    h1 {
-      max-width: 900px;
-      margin: 0;
-      font-size: clamp(48px, 8vw, 96px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-    }
-
-    .hero p {
-      max-width: 730px;
-      margin: 34px 0 0;
-      color: var(--muted);
-      font-size: clamp(18px, 2vw, 22px);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 650;
-    }
-
-    .button.primary {
-      background: var(--text);
-      color: var(--bg);
-    }
-
-    .button.secondary {
-      background: rgba(255,255,255,0.03);
-    }
-
-    section {
-      padding: 85px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .project-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
-      gap: 60px;
-      margin-bottom: 42px;
-      align-items: end;
-    }
-
-    .project-number {
-      margin-bottom: 12px;
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(36px, 5vw, 64px);
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-
-    .project-description {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 22px;
-    }
-
-    .tag {
-      padding: 6px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: #c8d0d9;
-      font-size: 12px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-
-    .shot {
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--surface);
-    }
-
-    .shot img {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .span-12 {
-      grid-column: span 12;
-    }
-
-    .span-7 {
-      grid-column: span 7;
-    }
-
-    .span-6 {
-      grid-column: span 6;
-    }
-
-    .span-5 {
-      grid-column: span 5;
-    }
-
-    .leafmate-grid .shot img,
-    .other-grid .shot img {
-      object-fit: contain;
-      background: var(--surface);
-    }
-
-    .experience {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 38px;
-    }
-
-    .experience-card {
-      padding: 28px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .experience-card h3 {
-      margin: 0 0 12px;
-      font-size: 19px;
-    }
-
-    .experience-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .nda {
-      margin-top: 28px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    footer {
-      padding: 70px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-title {
-      max-width: 700px;
-      margin: 0 0 30px;
-      font-size: clamp(32px, 5vw, 56px);
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-    }
-
-
-    /* PORTFOLIO_DESKTOP_IMAGE_FIX */
-
-    @media (min-width: 801px) {
-      .gallery {
-        max-width: 1040px;
-        margin-inline: auto;
-        align-items: start;
-      }
-
-      .gallery .shot {
-        align-self: start;
-      }
-
-      /*
-       * Nie powiększamy screenshotów ponad ich
-       * rzeczywistą szerokość.
-       */
-      .shot img {
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 900px;
-        object-fit: contain;
-      }
-
-      /*
-       * Główny screenshot WPA nie powinien zajmować
-       * całych 1180 px na dużym monitorze.
-       */
-      .shot.span-12 {
-        width: fit-content;
-        max-width: 920px;
-        justify-self: center;
-      }
-
-      /*
-       * Screenshoty mobilne lepiej wyglądają
-       * w węższym kontenerze.
-       */
-      .leafmate-grid {
-        max-width: 760px;
-      }
-
-      .other-grid {
-        max-width: 1040px;
-      }
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        padding: 80px 0 65px;
-      }
-
-      .project-header {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .span-7,
-      .span-6,
-      .span-5 {
-        grid-column: span 12;
-      }
-
-      .experience {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links a:not(.cv) {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <header>
+
+<header class="site-header">
+  <div class="container nav">
+
+    <a class="brand" href="./">
+      Paweł Hanejko
+    </a>
+
+    <nav class="nav-links">
+      <a class="optional" href="#work">Realizacje</a>
+      <a href="projects.html">Wszystkie projekty</a>
+
+      <a
+        href="assets/Pawel_Hanejko_CV.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        CV ↗
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero">
     <div class="container">
-      <nav>
-        <div class="brand">Paweł Hanejko</div>
 
-        <div class="nav-links">
-          <a href="#work">Realizacje</a>
-          <a href="#experience">Doświadczenie</a>
-          <a
-            class="cv"
-            href="assets/Pawel_Hanejko_CV.pdf"
-            target="_blank"
-            rel="noopener"
-          >CV ↗</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+      <div class="eyebrow">
+        Software Developer · Mobile · Web · Interactive
+      </div>
 
-  <main>
-    <div class="container hero">
-      <div class="eyebrow">Software Developer · Mobile · Web · Interactive</div>
+      <h1>
+        Tworzę kompletne produkty cyfrowe.
+      </h1>
 
-      <h1>Tworzę kompletne produkty cyfrowe.</h1>
-
-      <p>
+      <p class="lead">
         Aplikacje mobilne i webowe, systemy administracyjne,
-        płatności, rozwiązania interaktywne oraz dedykowane
-        oprogramowanie wykorzystywane w środowisku produkcyjnym.
+        rozwiązania muzealne, gry oraz dedykowane oprogramowanie
+        wykorzystywane w środowisku produkcyjnym.
       </p>
 
       <div class="actions">
+
         <a class="button primary" href="#work">
           Zobacz realizacje
+        </a>
+
+        <a class="button secondary" href="projects.html">
+          Wszystkie projekty
         </a>
 
         <a
@@ -401,23 +75,58 @@
           target="_blank"
           rel="noopener"
         >
-          Pobierz CV
+          CV
         </a>
+
       </div>
+
     </div>
+  </section>
 
-    <section id="work">
-      <div class="container">
-        <div class="project-header">
-          <div>
-            <div class="project-number">01 · Event Platform</div>
-            <h2>WPA Event Platform</h2>
-          </div>
 
-          <div class="project-description">
-            Platforma przygotowana dla wydarzenia i gali,
-            obejmująca aplikację użytkownika oraz rozbudowane
-            zaplecze administracyjne.
+  <section class="section" id="work">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div>
+          <div class="eyebrow">Selected work</div>
+          <h2>Wybrane realizacje</h2>
+        </div>
+
+        <p class="section-copy">
+          Kilka projektów pokazujących różne obszary mojego
+          doświadczenia: aplikacje mobilne i webowe, płatności,
+          rozwiązania cross-platform, instalacje muzealne i gry.
+        </p>
+
+      </div>
+
+
+      <!-- WPA -->
+
+      <article class="case">
+
+        <div class="case-grid">
+
+          <div class="case-meta">
+
+            <div class="eyebrow">
+              Event · Web · Mobile
+            </div>
+
+            <h3>
+              WPA Event Platform
+            </h3>
+
+            <p>
+              Platforma web/iOS/Android przygotowana dla wydarzenia
+              i gali. Obejmowała sprzedaż biletów, Stripe, wybór
+              miejsc, zarządzanie pulami, panel administracyjny,
+              wiadomości, powiadomienia, statystyki oraz skanowanie
+              biletów.
+            </p>
 
             <div class="tags">
               <span class="tag">Web</span>
@@ -426,198 +135,294 @@
               <span class="tag">Stripe</span>
               <span class="tag">Ticketing</span>
               <span class="tag">Admin Panel</span>
-              <span class="tag">Notifications</span>
-              <span class="tag">Analytics</span>
             </div>
+
           </div>
+
+
+          <div class="wpa-stage">
+
+            <figure class="wpa-phone">
+              <img
+                src="assets/wpa/wpa-01-overview.jpeg"
+                alt="WPA Event Platform"
+              >
+            </figure>
+
+            <div class="wpa-admin-stack">
+
+              <figure class="wpa-admin-card">
+                <img
+                  src="assets/wpa/wpa-02-ticket-zones.jpeg"
+                  alt="Zarządzanie pulami biletów"
+                  loading="lazy"
+                >
+              </figure>
+
+              <figure class="wpa-admin-card">
+                <img
+                  src="assets/wpa/wpa-03-orders-payments.jpeg"
+                  alt="Zamówienia i płatności"
+                  loading="lazy"
+                >
+              </figure>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="gallery">
-          <figure class="shot span-12">
-            <img
-              src="assets/wpa/wpa-01-overview.jpeg"
-              alt="WPA Event Platform"
-            >
-          </figure>
+      </article>
 
-          <figure class="shot span-7">
-            <img
-              src="assets/wpa/wpa-02-ticket-zones.jpeg"
-              alt="Zarządzanie biletami"
-              loading="lazy"
-            >
-          </figure>
 
-          <figure class="shot span-5">
-            <img
-              src="assets/wpa/wpa-03-orders-payments.jpeg"
-              alt="Zamówienia i płatności"
-              loading="lazy"
-            >
-          </figure>
+      <!-- RUST / TAURI MUSEUM -->
 
-          <figure class="shot span-6">
-            <img
-              src="assets/wpa/wpa-04-admin-content.jpeg"
-              alt="Panel administracyjny"
-              loading="lazy"
-            >
-          </figure>
+      <article class="case wide-case">
 
-          <figure class="shot span-6">
-            <img
-              src="assets/wpa/wpa-05-ticket-scanner.jpeg"
-              alt="Obsługa biletów"
-              loading="lazy"
-            >
-          </figure>
-        </div>
-      </div>
-    </section>
+        <figure class="wide-image">
+          <img
+            src="assets/museum/rust-tauri-fire-installation.jpg"
+            alt="Instalacja muzealna Rust i Tauri"
+            loading="lazy"
+          >
+        </figure>
 
-    <section>
-      <div class="container">
-        <div class="project-header">
+        <div class="wide-body">
+
           <div>
-            <div class="project-number">02 · Mobile</div>
-            <h2>Leafmate</h2>
+
+            <div class="eyebrow">
+              Museum · Interactive
+            </div>
+
+            <h3>
+              Instalacja muzealna
+            </h3>
+
           </div>
 
-          <div class="project-description">
-            Aplikacja mobilna do zarządzania roślinami,
-            zaprojektowana z naciskiem na prosty i nowoczesny
-            interfejs użytkownika.
+          <div>
+
+            <div class="work-role">
+              Senior Software Engineer
+            </div>
+
+            <p class="section-copy">
+              Dedykowane oprogramowanie dla instalacji muzealnej
+              stworzone w Rust i Tauri.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Rust</span>
+              <span class="tag">Tauri</span>
+              <span class="tag">Desktop</span>
+              <span class="tag">Interactive</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- LEAFMATE -->
+
+      <article class="case">
+
+        <div class="case-grid">
+
+          <div class="case-meta">
+
+            <div class="eyebrow">
+              Mobile · Product
+            </div>
+
+            <h3>
+              Leafmate
+            </h3>
+
+            <p>
+              Aplikacja mobilna do zarządzania roślinami,
+              przygotowana z naciskiem na prosty i nowoczesny
+              interfejs użytkownika.
+            </p>
 
             <div class="tags">
               <span class="tag">Mobile</span>
               <span class="tag">Cross-platform</span>
-              <span class="tag">Product Design</span>
+              <span class="tag">Product UI</span>
             </div>
-          </div>
-        </div>
 
-        <div class="gallery leafmate-grid">
-          <figure class="shot span-6">
-            <img
-              src="assets/leafmate/leafmate-01.jpeg"
-              alt="Leafmate"
-              loading="lazy"
-            >
-          </figure>
-
-          <figure class="shot span-6">
-            <img
-              src="assets/leafmate/leafmate-02.jpeg"
-              alt="Leafmate"
-              loading="lazy"
-            >
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <div class="project-header">
-          <div>
-            <div class="project-number">03 · Selected Work</div>
-            <h2>Pozostałe realizacje</h2>
           </div>
 
-          <div class="project-description">
-            Wybrane projekty komercyjne, aplikacje interaktywne,
-            systemy muzealne oraz rozwiązania wykorzystujące
-            urządzenia mobilne.
+          <div class="mobile-showcase">
+
+            <figure class="mobile-frame">
+              <img
+                src="assets/leafmate/leafmate-01.jpeg"
+                alt="Leafmate — szczegóły rośliny"
+                loading="lazy"
+              >
+            </figure>
+
+            <figure class="mobile-frame">
+              <img
+                src="assets/leafmate/leafmate-02.jpeg"
+                alt="Leafmate — kolekcja roślin"
+                loading="lazy"
+              >
+            </figure>
+
           </div>
+
         </div>
 
-        <div class="gallery other-grid">
-          <figure class="shot span-6">
-            <img
-              src="assets/other/commercial-01.jpg"
-              alt="Wybrana realizacja komercyjna"
-              loading="lazy"
-            >
-          </figure>
+      </article>
 
-          <figure class="shot span-6">
-            <img
-              src="assets/other/commercial-02.png"
-              alt="Wybrana realizacja interaktywna"
-              loading="lazy"
-            >
-          </figure>
 
-          <figure class="shot span-6">
-            <img
-              src="assets/other/interactive-01.png"
-              alt="Aplikacja interaktywna"
-              loading="lazy"
-            >
-          </figure>
+      <!-- GAME + UNITY MUSEUM -->
 
-          <figure class="shot span-6">
-            <img
-              src="assets/museum/museum-01.JPG"
-              alt="System muzealny"
-              loading="lazy"
-            >
-          </figure>
-        </div>
-
-        <div class="experience">
-          <article class="experience-card">
-            <h3>Systemy muzealne</h3>
-            <p>
-              Aplikacje na tablety Android wraz z systemami
-              zarządzania treścią, harmonogramami urządzeń
-              oraz aktualizacją aplikacji.
-            </p>
-          </article>
-
-          <article class="experience-card">
-            <h3>Fintech & Private Banking</h3>
-            <p>
-              Doświadczenie przy aplikacjach dla sektora
-              finansowego oraz rozwiązaniach wymagających
-              wysokiej jakości interfejsu.
-            </p>
-          </article>
-
-          <article class="experience-card">
-            <h3>Games & Location-based</h3>
-            <p>
-              Gry mobilne od prostych produkcji po bardziej
-              rozbudowane aplikacje terenowe wykorzystujące
-              lokalizację i nawigację.
-            </p>
-          </article>
-        </div>
-
-        <p class="nda">
-          Część projektów komercyjnych jest objęta NDA,
-          dlatego zakres materiałów dostępnych publicznie
-          jest ograniczony.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p class="footer-title">
-        Dostępny do współpracy przy nowych produktach i MVP.
-      </p>
-
-      <a
-        class="button primary"
-        href="assets/Pawel_Hanejko_CV.pdf"
-        target="_blank"
-        rel="noopener"
+      <div
+        class="featured-grid"
+        style="margin-top: 28px"
       >
-        Zobacz CV
-      </a>
+
+        <article class="work-card">
+
+          <figure class="work-card-image">
+            <img
+              src="assets/games/unity-nintendo-switch.png"
+              alt="Gra Unity na Nintendo Switch"
+              loading="lazy"
+            >
+          </figure>
+
+          <div class="work-card-body">
+
+            <div class="eyebrow">
+              Game
+            </div>
+
+            <h3>
+              Nintendo Switch
+            </h3>
+
+            <div class="work-role">
+              Lead Game Developer
+            </div>
+
+            <p>
+              Projekt gry przygotowywanej w Unity na Nintendo Switch.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Unity</span>
+              <span class="tag">Nintendo Switch</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="work-card">
+
+          <figure class="work-card-image">
+            <img
+              src="assets/museum/unity-windows-installation.jpg"
+              alt="Instalacja muzealna Unity Windows"
+              loading="lazy"
+            >
+          </figure>
+
+          <div class="work-card-body">
+
+            <div class="eyebrow">
+              Museum · Interactive
+            </div>
+
+            <h3>
+              Instalacja Unity
+            </h3>
+
+            <div class="work-role">
+              Senior Game Developer
+            </div>
+
+            <p>
+              Interaktywna instalacja muzealna działająca
+              na platformie Windows.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Unity</span>
+              <span class="tag">Windows</span>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <div
+        class="actions"
+        style="justify-content:center; margin-top:46px"
+      >
+        <a class="button secondary" href="projects.html">
+          Zobacz wszystkie realizacje →
+        </a>
+      </div>
+
     </div>
-  </footer>
+
+  </section>
+
+
+  <section class="cta">
+
+    <div class="container">
+
+      <div class="eyebrow">
+        Współpraca
+      </div>
+
+      <h2>
+        Dostępny do współpracy przy nowych produktach i MVP.
+      </h2>
+
+      <div class="actions">
+
+        <a
+          class="button primary"
+          href="assets/Pawel_Hanejko_CV.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          Zobacz CV
+        </a>
+
+        <a class="button secondary" href="projects.html">
+          Wszystkie projekty
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="container">
+    Paweł Hanejko · Software Developer
+  </div>
+</footer>
+
 </body>
 </html>
