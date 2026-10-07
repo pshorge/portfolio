@@ -52,7 +52,8 @@
 
     img {
       display: block;
-      width: 100%;
+      max-width: 100%;
+      height: auto;
     }
 
     .container {
@@ -200,14 +201,20 @@
 
     .shot {
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
       border: 1px solid var(--line);
       border-radius: 18px;
       background: var(--surface);
     }
 
     .shot img {
-      height: 100%;
-      object-fit: cover;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     .span-12 {
@@ -273,6 +280,55 @@
       font-size: clamp(32px, 5vw, 56px);
       letter-spacing: -0.04em;
       line-height: 1.05;
+    }
+
+
+    /* PORTFOLIO_DESKTOP_IMAGE_FIX */
+
+    @media (min-width: 801px) {
+      .gallery {
+        max-width: 1040px;
+        margin-inline: auto;
+        align-items: start;
+      }
+
+      .gallery .shot {
+        align-self: start;
+      }
+
+      /*
+       * Nie powiększamy screenshotów ponad ich
+       * rzeczywistą szerokość.
+       */
+      .shot img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 900px;
+        object-fit: contain;
+      }
+
+      /*
+       * Główny screenshot WPA nie powinien zajmować
+       * całych 1180 px na dużym monitorze.
+       */
+      .shot.span-12 {
+        width: fit-content;
+        max-width: 920px;
+        justify-self: center;
+      }
+
+      /*
+       * Screenshoty mobilne lepiej wyglądają
+       * w węższym kontenerze.
+       */
+      .leafmate-grid {
+        max-width: 760px;
+      }
+
+      .other-grid {
+        max-width: 1040px;
+      }
     }
 
     @media (max-width: 800px) {
